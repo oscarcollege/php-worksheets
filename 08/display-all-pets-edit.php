@@ -22,10 +22,11 @@ try {
     <table class="w-full">
         <thead>
             <tr class="uppercase tracking-wide border-b border-gray-600 text-left">
-                <th class="px-4 py-3 border-t border-l border-gray-600">ID</th>
+                <th class="px-4 py-3 border-t border-gray-600 border-l">ID</th>
                 <th class="px-4 py-3 border-t border-gray-600">Name</th>
                 <th class="px-4 py-3 border-t border-gray-600">Age</th>
-                <th class="px-4 py-3 border-t border-r border-gray-600">Type</th>
+                <th class="px-4 py-3 border-t border-gray-600">Type</th>
+                <th class="px-4 py-3 border-t border-gray-600 border-r">#</th>
             </tr>
         <thead>
 
@@ -40,6 +41,7 @@ try {
                     <td class="px-4 py-3 border border-gray-600 bg-gray-100"><?=$row['name']?></td>
                     <td class="px-4 py-3 border border-gray-600 bg-gray-100"><?=$row['age']?></td>
                     <td class="px-4 py-3 border border-gray-600 bg-gray-100"><?=$row['type']?></td>
+                    <td class="px-4 py-3 border border-gray-600 bg-gray-100"><a href="edit.php?id=<?=$row["id"]?>">Edit</a></td>
                 </tr>
             <?php endwhile;
 

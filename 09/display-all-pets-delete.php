@@ -22,10 +22,12 @@ try {
     <table class="w-full">
         <thead>
             <tr class="uppercase tracking-wide border-b border-gray-600 text-left">
-                <th class="px-4 py-3 border-t border-l border-gray-600">ID</th>
+                <th class="px-4 py-3 border-t border-gray-600 border-l">ID</th>
                 <th class="px-4 py-3 border-t border-gray-600">Name</th>
                 <th class="px-4 py-3 border-t border-gray-600">Age</th>
-                <th class="px-4 py-3 border-t border-r border-gray-600">Type</th>
+                <th class="px-4 py-3 border-t border-gray-600">Type</th>
+                <th class="px-4 py-3 border-t border-gray-600">#</th>
+                <th class="px-4 py-3 border-t border-gray-600 border-r"></th>
             </tr>
         <thead>
 
@@ -40,6 +42,8 @@ try {
                     <td class="px-4 py-3 border border-gray-600 bg-gray-100"><?=$row['name']?></td>
                     <td class="px-4 py-3 border border-gray-600 bg-gray-100"><?=$row['age']?></td>
                     <td class="px-4 py-3 border border-gray-600 bg-gray-100"><?=$row['type']?></td>
+                    <td class="px-4 py-3 border border-gray-600 bg-gray-100"><a href="edit.php?id=<?=$row["id"]?>" class="bg-green-600 pt-1 pb-1 pl-3 pr-3 rounded text-white">Edit</a></td>
+                    <td class="px-4 py-3 border border-gray-600 bg-gray-100"><a href="delete-action.php?id=<?=$row["id"]?>" class="bg-blue-600 pt-1 pb-1 pl-3 pr-3 rounded text-white">Delete</a></td>
                 </tr>
             <?php endwhile;
 
@@ -48,6 +52,11 @@ try {
             ?>
         <tbody>
     </table>
+    <?php if(isset($_GET['msg']) && $_GET['msg']=='delete-success'): ?>
+        <div class="border-red-800 bg-red-400 text-red-900 text-sm inline-flex p-2 mt-2 rounded">
+            Deleted successfully
+        </div>
+    <?php endif ?>
 </body>
 </html>
 

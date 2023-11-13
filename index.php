@@ -10,7 +10,7 @@
         $fullName = "$firstName $lastName"; 
         echo "<p>hello <strong>$fullName</strong></p>";
 
-        header('Location: http://localhost/php/index.html');
+        header('Location: http://localhost/php-worksheets/index.html');
     ?> 
 </body> 
 </html>
