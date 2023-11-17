@@ -25,24 +25,24 @@ $pet = $result->fetch_assoc();
     <title>Edit</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1 class="font-black uppercase text-xl">Edit <?=$pet['name']?></h1>
-    <form action="edit-action.php" method="POST">
-        <label for="name">Name: </label>
-        <input type="text" name="name" value="<?=$pet["name"]?>" class="border border-black m-1">
-        <br>
+<body class="bg-gray-950">
 
-        <label for="age">Age: </label>
-        <input type="text" name="age" value="<?=$pet["age"]?>" class="border border-black m-1">
-        <br>
+    <?php include "partials/menu.php"; ?>
 
-        <label for="type">Type: </label>
-        <input type="text" name="type" value="<?=$pet["type"]?>" class="border border-black m-1">
-        <br>
-
-        <input type="submit" value="Update" class="border border-black bg-gray-200 mt-1 rounded pl-1 pr-1 hover:bg-gray-300">
-
-        <input type="hidden" name="id" value="<?=$pet["id"]?>">
+    <div class="mx-auto container w-1/2">
+        <div class="p-4 bg-black">
+            <div class="w-auto mx-10">
+                <h1 class="text-lg font-bold text-white">Edit <?=$pet['name']?></h1>
+                <form class="flex flex-col mt-4" method="post" action="edit-action.php">
+                    <input type="text" name="name" placeholder="Enter pets name" value="<?=$pet['name']?>" class="px-4 py-3 rounded-md bg-gray-600 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0 text-sm text-white">
+                    <input type="text" name="age" placeholder="Enter pets age" value="<?=$pet['age']?>" class="px-4 py-3 mt-3 rounded-md bg-gray-600 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0 text-sm text-white">
+                    <input type="text" name="type" placeholder="Enter the type of pet" value="<?=$pet['type']?>" class="px-4 py-3 mt-3 rounded-md bg-gray-600 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0 text-sm text-white">
+                    <input type="hidden" name="id" value="<?=$pet["id"]?>">
+                    <button type="submit" class="px-4 py-3 mt-3 rounded-md border border-transparent leading-6 text-base text-white focus:outline-none bg-blue-500 text-blue-100 hover:text-white focus:ring-offset-2 cursor-pointer inline-flex items-center w-full justify-center font-medium focus:outline-none">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
     </form>
 
     <?php if(isset($_GET['msg']) && $_GET['msg']=='success'): ?>

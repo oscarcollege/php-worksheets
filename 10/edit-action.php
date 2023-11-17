@@ -23,7 +23,9 @@
     $stmt->bind_param('ssss', $_POST['name'], $_POST['age'], $_POST['type'], $_POST['id']);
     $stmt->execute();
 
-    header("Location: http://localhost/php-worksheets/08/edit.php?id={$_POST['id']}&msg=success");
+    header("Location: http://localhost/php-worksheets/10/edit.php?id={$_POST['id']}&msg=success");
+
+    header('Location: http://localhost/php-worksheets/10/display-all-pets.php?msg=edit-success');
     ?>
 </body>
 </html>

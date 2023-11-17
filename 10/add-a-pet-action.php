@@ -14,7 +14,7 @@
     try {
         $conn = new mysqli($servername, $username, $password, "pets");        
     } catch (Exception $ex) {
-        header('Location: http://localhost/php/error-page.html');
+        header('Location: http://localhost/php-worksheets/error-page.html');
     }
 
     echo "successfully connected";
@@ -27,6 +27,8 @@
     $name = $_POST['name'];
 
     echo "successfully added $name to the database";
+
+    header('Location: http://localhost/php-worksheets/10/display-all-pets.php?msg=add-success');
     ?>
 </body>
 </html>
