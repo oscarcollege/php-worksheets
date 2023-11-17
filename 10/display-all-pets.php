@@ -32,27 +32,30 @@ if (isset($_POST['search'])) {
 </head>
 <body class="bg-gray-950 px-60 py-10 mx-auto">
 
+    <!--search bar-->
     <form action="#" method="POST">
         <span class="flex mb-4 p-0.5 w-full bg-black text-sm text-gray-400 border border-gray-700">
-            <a href="./display-all-pets.php" class="cursor-pointer"><img src="images/magnifier.png" class="flex-inline w-5 h-5 p-0.5 mr-1"></a>
-            <input type="text" name="search" value="<?=$last_search?>" class="flex-inline focus:outline-none w-full bg-black">
+            <a href="./display-all-pets.php" class="cursor-pointer"><img src="images/magnifier.png" class="w-5 h-5 p-0.5 mr-1"></a>
+            <input type="text" name="search" value="<?=$last_search?>" class="focus:outline-none w-full bg-black">
         </span>
     </form>
 
     <table class="w-full">
         <thead>
             <tr class="uppercase text-gray-400 tracking-wide text-left">
-                <span class="flex">
-                    <th class="px-4 py-3 border-y border-gray-600 border-l flex-inline">ID</th>
-                    <img src="images/arrow.png" class="w-4 h-4 flex-inline">
-                </span>
+                <th class="px-4 py-3 border-y border-gray-600 border-l">
+                    <div>
+                        <img src="images/arrow2.png" class="pt-2 w-4 float-right">
+                        <span>ID</span>
+                    </div>
+                </th>
                 <th class="px-4 py-3 border-y border-gray-600">Name</th>
                 <th class="px-4 py-3 border-y border-gray-600">Age</th>
                 <th class="px-4 py-3 border-y border-gray-600">Type</th>
                 <th class="px-4 py-3 border-y border-gray-600">#</th>
                 <th class="px-4 py-3 border-y border-gray-600 border-r"></th>
             </tr>
-        <thead>
+        </thead>
 
         <tbody>
             <?php
@@ -71,7 +74,7 @@ if (isset($_POST['search'])) {
             $conn->close();
             ?>
 
-        <tbody>
+        </tbody>
     </table>
 
     <?php if(isset($_GET['msg']) && $_GET['msg']=='edit-success'): ?>
