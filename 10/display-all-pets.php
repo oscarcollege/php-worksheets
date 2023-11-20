@@ -20,6 +20,12 @@ if (isset($_POST['search'])) {
     $sql = "SELECT * FROM pets";
     $result = $conn->query($sql);
 }
+
+if (isset($_POST['sort'])) {
+    $sort_by = $_POST['sort'];
+    $result = sort_pets("", $sort_by, $conn);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +36,7 @@ if (isset($_POST['search'])) {
     <title>Display all pets</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-950 px-60 py-10 mx-auto">
+<body class="bg-gray-950 px-80 py-20 mx-auto">
 
     <!--search bar-->
     <form action="#" method="POST">
@@ -44,14 +50,30 @@ if (isset($_POST['search'])) {
         <thead>
             <tr class="uppercase text-gray-400 tracking-wide text-left">
                 <th class="px-4 py-3 border-y border-gray-600 border-l">
-                    <div>
-                        <img src="images/arrow2.png" class="pt-2 w-4 float-right">
+                    <form method="POST" id="id-sort" onclick="document.getElementById('id-sort').submit();" class="cursor-pointer">
+                        <img src="images/arrowdown.png" class="pt-2 w-4 float-right">
                         <span>ID</span>
+                        <input type="hidden" name="sort" value="id" id="id-sort-submit">
+                    </form>
+                </th>
+                <th class="px-4 py-3 border-y border-gray-600">
+                    <div>
+                        <img src="images/flat.png" class="pt-2 w-4 float-right">
+                        <span>Name</span>
                     </div>
                 </th>
-                <th class="px-4 py-3 border-y border-gray-600">Name</th>
-                <th class="px-4 py-3 border-y border-gray-600">Age</th>
-                <th class="px-4 py-3 border-y border-gray-600">Type</th>
+                <th class="px-4 py-3 border-y border-gray-600">
+                    <div>
+                        <img src="images/flat.png" class="pt-2 w-4 float-right">
+                        <span>Age</span>
+                    </div>
+                </th>
+                <th class="px-4 py-3 border-y border-gray-600">
+                    <div>
+                        <img src="images/flat.png" class="pt-2 w-4 float-right">
+                        <span>Type</span>
+                    </div>
+                </th>
                 <th class="px-4 py-3 border-y border-gray-600">#</th>
                 <th class="px-4 py-3 border-y border-gray-600 border-r"></th>
             </tr>
@@ -66,7 +88,7 @@ if (isset($_POST['search'])) {
                     <td class="px-4 py-3 border border-gray-700"><?=$row['age']?></td>
                     <td class="px-4 py-3 border border-gray-700"><?=$row['type']?></td>
                     <td class="px-4 py-3 border border-gray-700"><a href="edit.php?id=<?=$row["id"]?>" class="bg-green-800 hover:bg-green-600 hover:text-gray-200 pt-1 pb-1 pl-3 pr-3 rounded text-gray-400">Edit</a></td>
-                    <td class="px-4 py-3 border border-gray-700"><a href="delete-action.php?id=<?=$row["id"]?>" class="bg-blue-800 hover:bg-blue-600 hover:text-gray-200 pt-1 pb-1 pl-3 pr-3 rounded text-gray-400">Delete</a></td>
+                    <td class="px-4 py-3 border border-gray-700"><a href="delete-action.php?id=<?=$row["id"]?>" class="bg-red-800 hover:bg-red-600 hover:text-gray-200 pt-1 pb-1 pl-3 pr-3 rounded text-gray-400">Delete</a></td>
                 </tr>
             <?php endwhile;
 
@@ -78,20 +100,21 @@ if (isset($_POST['search'])) {
     </table>
 
     <?php if(isset($_GET['msg']) && $_GET['msg']=='edit-success'): ?>
-        <div class="border-green-800 bg-green-400 text-green text-sm inline-flex p-2 mt-2 rounded">
+        <div class="border-green-800 bg-green-400 text-gray-400 text-sm inline-flex p-2 mt-2 rounded">
             <a href="./display-all-pets.php" class="cursor-default">Updated successfully</a>
         </div>
     <?php endif ?>
 
     <?php if(isset($_GET['msg']) && $_GET['msg']=='add-success'): ?>
-        <div class="border-green-800 bg-green-400 text-green text-sm inline-flex p-2 mt-2 rounded cursor-default">
+        <div class="border-green-800 bg-green-400 text-gray-400 text-sm inline-flex p-2 mt-2 rounded cursor-default">
         <a href="./display-all-pets.php" class="cursor-default">Added pet successfully</a>
         </div>
     <?php endif ?>
 
     <div class="pt-5">
-        <a class="px-4 py-3 bg-green-600 hover:bg-green-700 rounded text-green" href="add-a-pet.php">Add a pet</a>
+        <a class="px-4 py-3 bg-green-800 hover:bg-green-600 hover:text-gray-200 rounded text-gray-400" href="add-a-pet.php">Add a pet</a>
     </div>
 
 </body>
+<script src="js/js.js"></script>
 </html>
