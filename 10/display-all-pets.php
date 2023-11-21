@@ -46,6 +46,7 @@ if (isset($_POST['sort'])) {
         </span>
     </form>
 
+    <!--table head-->
     <table class="w-full">
         <thead>
             <tr class="uppercase text-gray-400 tracking-wide text-left">
@@ -79,6 +80,7 @@ if (isset($_POST['sort'])) {
             </tr>
         </thead>
 
+        <!--table body-->
         <tbody>
             <?php
             while ($row=$result->fetch_array(MYSQLI_ASSOC)): ?>
@@ -87,8 +89,12 @@ if (isset($_POST['sort'])) {
                     <td class="px-4 py-3 border border-gray-700"><?=$row['name']?></td>
                     <td class="px-4 py-3 border border-gray-700"><?=$row['age']?></td>
                     <td class="px-4 py-3 border border-gray-700"><?=$row['type']?></td>
-                    <td class="px-4 py-3 border border-gray-700"><a href="edit.php?id=<?=$row["id"]?>" class="bg-green-800 hover:bg-green-600 hover:text-gray-200 pt-1 pb-1 pl-3 pr-3 rounded text-gray-400">Edit</a></td>
-                    <td class="px-4 py-3 border border-gray-700"><a href="delete-action.php?id=<?=$row["id"]?>" class="bg-red-800 hover:bg-red-600 hover:text-gray-200 pt-1 pb-1 pl-3 pr-3 rounded text-gray-400">Delete</a></td>
+                    <td class="px-4 py-3 border border-gray-700">
+                        <a href="edit.php?id=<?=$row["id"]?>" class="bg-green-800 hover:bg-green-600 hover:text-gray-200 pt-1 pb-1 pl-3 pr-3 rounded text-gray-400">Edit</a>
+                    </td>
+                    <td class="px-4 py-3 border border-gray-700">
+                        <a href="delete-action.php?id=<?=$row["id"]?>" class="bg-red-800 hover:bg-red-600 hover:text-gray-200 pt-1 pb-1 pl-3 pr-3 rounded text-gray-400">Delete</a>
+                    </td>
                 </tr>
             <?php endwhile;
 

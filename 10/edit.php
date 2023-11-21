@@ -27,10 +27,10 @@ $pet = $result->fetch_assoc();
 </head>
 <body class="bg-gray-950">
 
-    <?php include "partials/menu.php"; ?>
+    <!--<?php include "partials/menu.php"; ?>-->
 
-    <div class="mx-auto container w-1/2">
-        <div class="p-4 bg-black">
+    <div class="mx-auto container w-1/2 mt-32">
+        <div class="p-4 bg-gray-950">
             <div class="w-auto mx-10">
                 <h1 class="text-lg font-bold text-white">Edit <?=$pet['name']?></h1>
                 <form class="flex flex-col mt-4" method="post" action="edit-action.php">
