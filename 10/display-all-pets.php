@@ -106,14 +106,22 @@ if (isset($_POST['sort'])) {
     </table>
 
     <?php if(isset($_GET['msg']) && $_GET['msg']=='edit-success'): ?>
-        <div class="border-green-800 bg-green-400 text-gray-400 text-sm inline-flex p-2 mt-2 rounded">
-            <a href="./display-all-pets.php" class="cursor-default">Updated successfully</a>
+        <div class="border-green-800 bg-gray-800 text-gray-400 text-sm inline-flex p-2 mt-2 rounded cursor-pointer">
+            <a href="./display-all-pets.php">Updated successfully</a>
         </div>
     <?php endif ?>
 
     <?php if(isset($_GET['msg']) && $_GET['msg']=='add-success'): ?>
-        <div class="border-green-800 bg-green-400 text-gray-400 text-sm inline-flex p-2 mt-2 rounded cursor-default">
-        <a href="./display-all-pets.php" class="cursor-default">Added pet successfully</a>
+        <div class="border-green-800 bg-gray-800 text-gray-400 text-sm inline-flex p-2 mt-2 rounded cursor-pointer">
+            <a href="./display-all-pets.php">Added pet successfully</a>
+        </div>
+        <!--<img src="images/x.png" class="w-4 flex">-->
+        <!--<span class="text-red-800 cursor-pointer border border-red-800 py-1 px-2">X</span>-->
+    <?php endif ?>
+
+    <?php if(isset($_GET['msg']) && $_GET['msg']=='delete-success'): ?>
+        <div class="border-green-800 bg-gray-800 text-gray-400 text-sm inline-flex p-2 mt-2 rounded cursor-pointer">
+            <a href="./display-all-pets.php">Deleted pet successfully</a>
         </div>
     <?php endif ?>
 
