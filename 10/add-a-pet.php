@@ -6,22 +6,24 @@
     <title>add a pet</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-950">
 
-    <?php include "partials/menu.php"; ?>
+    <!--<?php include "partials/menu.php"; ?>-->
 
-    <form action="add-a-pet-action.php" method="post">
-        <label for="name">enter your pets name:</label>
-        <input type="text" name="name"><br>
+    <div class="mx-auto container w-1/2 mt-32">
+        <div class="p-4 bg-gray-950">
+            <div class="w-auto mx-10">
+                <h1 class="text-lg font-bold text-white">Add a pet</h1>
+                <form class="flex flex-col mt-4" method="post" action="add-a-pet-action.php">
+                    <input type="text" name="name" placeholder="Enter pets name" class="px-4 py-3 rounded-md bg-gray-600 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0 text-sm text-white">
+                    <input type="text" name="age" placeholder="Enter pets age" class="px-4 py-3 mt-3 rounded-md bg-gray-600 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0 text-sm text-white">
+                    <input type="text" name="type" placeholder="Enter the type of pet" class="px-4 py-3 mt-3 rounded-md bg-gray-600 border-transparent focus:border-gray-500 focus:bg-gray-600 focus:ring-0 text-sm text-white">
+                    <button type="submit" class="px-4 py-3 mt-3 rounded-md border border-transparent leading-6 text-base text-white focus:outline-none bg-blue-500 text-blue-100 hover:text-white focus:ring-offset-2 cursor-pointer inline-flex items-center w-full justify-center font-medium focus:outline-none">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-        <label for="age">enter your pets age:</label>
-        <input type="number" name="age"><br>
-
-        <label for="type">enter your pets type:</label>
-        <input type="text" name="type"><br>
-
-        <button type="submit">submit form</button>
-    </form>
 </body>
 </html>
 

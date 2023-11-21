@@ -22,6 +22,7 @@ if (isset($_POST['search'])) {
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-300 w-full">
+    
     <?php include "partials/menu.php"; ?>
 
     <form action="search.php" method="POST" class="mt-5 mb-5">

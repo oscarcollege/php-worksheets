@@ -29,4 +29,13 @@ function find_pet($search, $conn) {
     $stmt->execute();
     return $stmt->get_result();
 }
+
+function sort_pets($search, $sort, $conn) {
+    $query = "SELECT * FROM pets ORDER BY ? DESC";
+    $stmt = $conn->prepare($query);
+
+    $stmt->bind_param("s", $sort);
+    $stmt->execute();
+    return $stmt->get_result();
+}
 ?>
